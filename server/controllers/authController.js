@@ -22,18 +22,18 @@ exports.signup = (req, res) => {
   const password = req.body.password;
 
   if (!email || !password) {
-   return res.status(422).send({error: 'Please provide an email and password'})
+   return res.status(422).json({error: 'Please provide an email and password'})
   }
 
   User.findOne({email:email}).then(existingUser => {
     if (existingUser) {
-      return res.status(422).send({msg: 'A user with the same email already exists'})
+      return res.status(422).json({msg: 'A user with the same email already exists'})
     }
 
-    const user = new User()
-      user.email = email
-      user.password = password
-      user.photo = user.gravatar()
+    const user = new User();
+      user.email = email;
+      user.password = password;
+      user.photo = user.gravatar();
 
 
     user.save().then(user => {

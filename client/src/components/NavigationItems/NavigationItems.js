@@ -20,7 +20,6 @@ class NavigationItems extends Component{
             } else{
                 authNav =  <NavigationItem type="Nav" link="/auth">Sign Up or Sign In</NavigationItem>;
             }
-            console.log(this.props)
         }
         return(
             <div className="NavigationItems DesktopOnly">

@@ -40,11 +40,13 @@ export const authInit = (userDetails, isSignUp)=> {
                 }
             })
             .catch(err=>{
-                console.log(err);
+
                 if(!isSignUp){
                     dispatch(signUpFail(err))
+                    console.log(err, 'sign in fail')
                 } else{
                     dispatch(signInFail(err))
+                    console.log(err, 'sign up fail');
                 }
             });
 

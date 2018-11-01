@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-//import axios from 'axios'
+import axios from 'axios'
 import Input from '../../UI/Input'
 import Button from '../../UI/Button/Button'
 import {checkValidity} from '../../shared/utility'
@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import * as Action from '../../store/actions/auth'
 import Spinner from '../../UI/Spinner/Spinner'
-
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import './Auth.css'
 
 
@@ -224,4 +224,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth)
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Auth, axios))

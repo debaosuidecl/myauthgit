@@ -39,6 +39,7 @@ const reducer = (state=initialState, action) => {
                 error: action.error,
                 logout: null,
                 newSignUp: null,
+                loading: false
 
             };
         case actionTypes.SIGN_IN_SUCCESS:
@@ -56,7 +57,8 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 error: action.error,
                 logout: null,
-                newSignUp: null
+                newSignUp: null,
+                loading: false
 
             };
         case actionTypes.RETRIEVE_USER_DATA:
